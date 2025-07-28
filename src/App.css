@@ -1,3 +1,5 @@
+/* src/App.css */
+
 /* --- GERAL E TIPOGRAFIA --- */
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Lato:wght@400;700&display=swap');
 
@@ -10,6 +12,9 @@
   --branco: #FFFFFF;
   --sombra-suave: rgba(110, 119, 93, 0.08);
   --cinza-borda: #EAE5DE;
+  --vermelho-erro: #d8000c;
+  --fundo-erro: #fff0f0;
+  --borda-erro: #ffaaaa;
   --font-serif: 'Lora', serif;
   --font-sans: 'Lato', sans-serif;
 }
@@ -28,21 +33,49 @@ body {
 }
 
 .AppContainer {
+  width: 100%;
   max-width: 900px;
+  padding: 0 1.5rem; /* Padding horizontal para mobile */
+  box-sizing: border-box;
   margin: 2rem 0;
-  padding: clamp(1.5rem, 5vw, 3rem);
 }
 
 /* --- CABEÇALHO --- */
 .app-header { text-align: center; margin-bottom: 2rem; }
-.app-header h1 { font-family: var(--font-serif); color: var(--verde-oliva); font-size: clamp(2.2rem, 5vw, 3rem); margin-bottom: 0.5rem; font-weight: 700; }
-.app-header p { font-size: 1.1rem; color: #8c8a87; max-width: 500px; margin: 0 auto 2rem auto; }
-.match-start-link { color: var(--laranja-acao); font-weight: 700; cursor: pointer; text-decoration: none; border-bottom: 2px solid transparent; transition: border-bottom-color 0.2s ease; }
-.match-start-link:hover { border-bottom-color: var(--laranja-acao); }
+.app-header h1 { font-family: var(--font-serif); color: var(--verde-oliva); font-size: clamp(2rem, 6vw, 2.8rem); margin-bottom: 0.5rem; font-weight: 700; }
+.app-header p { font-size: 1.1rem; color: #8c8a87; max-width: 500px; margin: 0 auto 2rem auto; line-height: 1.6; }
+
+
+/* --- BANNER DE ERRO --- */
+.error-banner {
+    padding: 1rem;
+    background-color: var(--fundo-erro);
+    border: 1px solid var(--borda-erro);
+    color: var(--vermelho-erro);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.error-banner p {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
+}
+
 
 /* --- CATÁLOGO DE CARDS --- */
-.catalogo-container { display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem; }
-.psi-card { background-color: var(--branco); border-radius: 16px; box-shadow: 0 4px 25px var(--sombra-suave); border: 1px solid var(--cinza-borda); display: flex; align-items: center; padding: 1.5rem; gap: 1.5rem; transition: all 0.4s ease; }
+.catalogo-container { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 3rem; }
+.psi-card { 
+  background-color: var(--branco); 
+  border-radius: 16px; 
+  box-shadow: 0 4px 25px var(--sombra-suave); 
+  border: 1px solid var(--cinza-borda); 
+  display: flex; 
+  align-items: center; 
+  padding: 1.5rem; 
+  gap: 1.5rem; 
+  transition: all 0.4s ease; 
+  scroll-margin-top: 2rem; /* NOVO: Adiciona espaço no topo ao fazer scroll para o elemento */
+}
 .psi-foto { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 4px solid var(--branco); box-shadow: 0 0 15px rgba(0,0,0,0.1); }
 .psi-info { flex-grow: 1; }
 .psi-nome { font-family: var(--font-serif); font-size: 1.75rem; margin: 0 0 0.25rem 0; color: var(--marrom-texto); }
@@ -75,7 +108,7 @@ body {
 .botao-perfil:hover { border-color: var(--verde-oliva); background-color: var(--fundo-bege); }
 
 /* --- Questionário de Match --- */
-.match-container { background-color: var(--branco); border-radius: 16px; padding: clamp(1.5rem, 5vw, 3rem); max-width: 600px; margin: 3rem auto; text-align: center; border: 1px solid var(--cinza-borda); box-shadow: 0 10px 50px var(--sombra-suave); }
+.match-container { background-color: var(--branco); border-radius: 16px; padding: clamp(1.5rem, 5vw, 3rem); max-width: 600px; margin: 2rem auto; text-align: center; border: 1px solid var(--cinza-borda); box-shadow: 0 10px 50px var(--sombra-suave); }
 .match-pergunta { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem; line-height: 1.4; color: var(--verde-oliva); }
 .match-respostas { display: grid; grid-template-columns: 1fr; gap: 1rem; }
 .match-respostas button { background-color: var(--fundo-bege); border: 2px solid var(--cinza-borda); padding: 1rem; border-radius: 8px; cursor: pointer; width: 100%; font-size: 1rem; font-weight: 500; color: var(--marrom-texto); text-align: left; transition: all 0.2s ease; }
@@ -94,13 +127,7 @@ body {
 .botao-home { background: transparent; border: none; color: var(--marrom-texto); cursor: pointer; font-size: 1rem; margin-bottom: 2rem; display: inline-block; font-weight: 700; }
 .botao-home:hover { color: var(--verde-oliva); text-decoration: underline; }
 
-.app-footer { text-align: center; margin-top: 4rem; padding-top: 2rem; font-size: 0.9rem; color: #aaa; border-top: 1px solid var(--cinza-borda); }
-
-@media (max-width: 768px) {
-    .psi-card { flex-direction: column; text-align: center; gap: 1rem; }
-    .card-botoes { width: 100%; margin-top: 1rem; }
-    .psi-especialidades { justify-content: center; }
-}
+.app-footer { text-align: center; margin-top: 4rem; padding: 2rem 1.5rem; font-size: 0.9rem; color: #aaa; border-top: 1px solid var(--cinza-borda); }
 
 button {
   -webkit-tap-highlight-color: transparent;
@@ -108,112 +135,169 @@ button {
 
 /* --- Promo Match Container --- */
 .promo-match-container {
-  background-color: var(--branco); /* Optional: or a subtle background from palette */
-  padding: 2rem;
+  background-color: var(--branco);
+  padding: 2rem 1.5rem; /* Padding ajustado para mobile */
   border-radius: 16px;
-  margin-bottom: 3rem; /* Space before the catalog or other content */
+  margin: 0 auto 3rem auto;
   text-align: center;
   box-shadow: 0 4px 25px var(--sombra-suave);
   border: 1px solid var(--cinza-borda);
 }
+.promo-match-container h2 { font-family: var(--font-serif); color: var(--verde-oliva); font-size: clamp(1.8rem, 4vw, 2.2rem); margin-top: 0; margin-bottom: 0.75rem; }
+.promo-match-container p { font-size: 1.1rem; color: var(--marrom-texto); max-width: 500px; margin-left: auto; margin-right: auto; margin-bottom: 1.5rem; line-height: 1.6; }
+.botao-iniciar-match { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 50px; border: 2px solid var(--laranja-acao); background-color: var(--laranja-acao); color: var(--branco); font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.2s ease; text-decoration: none; }
+.botao-iniciar-match:hover { background-color: #d48f70; border-color: #d48f70; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-.promo-match-container h2 {
+/* --- AI Text Input --- */
+.match-subpergunta { margin-top: -1.5rem; margin-bottom: 1.5rem; color: #8c8a87; }
+.match-textarea { width: 100%; padding: 1rem; border-radius: 8px; border: 2px solid var(--cinza-borda); font-family: var(--font-sans); font-size: 1rem; resize: vertical; box-sizing: border-box; margin-bottom: 1.5rem; }
+.match-textarea:focus { border-color: var(--verde-oliva); outline: none; }
+.botao-finalizar { background-color: var(--laranja-acao); color: var(--branco); border: none; border-radius: 50px; padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
+.botao-finalizar:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(210, 132, 90, 0.35); }
+.botao-finalizar:disabled { background-color: var(--verde-acao); cursor: wait; }
+
+.psi-crp { font-size: 0.85rem; color: var(--marrom-texto); margin-top: -0.5rem; margin-bottom: 0.75rem; font-style: italic; }
+
+/* --- Horarios (no Catálogo) --- */
+.horarios-container { margin-top: 1rem; margin-bottom: 1rem; padding: 1rem; background-color: #f9f7f4; border-radius: 8px; border: 1px solid var(--cinza-borda); }
+.horarios-container h4 { margin-top: 0; margin-bottom: 0.75rem; color: var(--verde-oliva); font-family: var(--font-serif); font-size: 1.1rem; }
+.horarios-lista { list-style-type: none; padding: 0; margin: 0; }
+.horarios-lista li { background-color: var(--branco); padding: 8px 12px; border-radius: 4px; margin-bottom: 6px; font-size: 0.95rem; border: 1px solid #EAE5DE; }
+.horarios-lista .dia { font-weight: bold; text-transform: capitalize; color: var(--marrom-texto); }
+.sem-horarios-texto { font-style: italic; color: #999; margin-top: 1rem; }
+
+/* --- Horarios (Dropdown no Resultado) --- */
+.selecao-horario-container { width: 100%; margin-bottom: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.selecao-horario-container label { font-size: 0.9rem; font-weight: 500; color: var(--marrom-texto); text-align: center; }
+.horario-select { width: 100%; padding: 10px; border-radius: 8px; border: 2px solid var(--cinza-borda); background-color: var(--branco); font-family: var(--font-sans); font-size: 1rem; font-weight: 500; cursor: pointer; transition: border-color 0.2s ease; color: var(--marrom-texto); }
+.horario-select:hover { border-color: var(--verde-oliva); }
+.horario-select:focus { outline: none; border-color: var(--verde-oliva); box-shadow: 0 0 0 3px rgba(110, 119, 93, 0.2); }
+
+/* --- Horarios (Grid no Questionário) --- */
+.horarios-grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 1rem; margin: 1.5rem 0; width: 100%; }
+.botao-horario { padding: 12px 8px; border-radius: 8px; border: 2px solid var(--cinza-borda); background-color: var(--fundo-bege); color: var(--marrom-texto); font-weight: 500; cursor: pointer; transition: all 0.2s ease; text-align: center; }
+.botao-horario:hover { border-color: var(--verde-oliva); background-color: #f6f3ed; }
+.botao-horario.selecionado { background-color: var(--verde-oliva); color: var(--branco); border-color: var(--verde-oliva); font-weight: 700; }
+.botoes-navegacao-horarios { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1rem; width: 100%; }
+.botao-proximo { width: 100%; max-width: 300px; background-color: var(--laranja-acao); color: var(--branco); border: none; border-radius: 50px; padding: 1rem; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
+.botao-proximo:hover { background-color: #d48f70; transform: translateY(-2px); }
+.botao-pular { background: none; border: none; color: var(--marrom-texto); text-decoration: underline; cursor: pointer; font-size: 0.95rem; }
+.botao-pular:hover { color: var(--verde-oliva); }
+
+
+/* ==========================================================================
+   MELHORIAS PARA MOBILE (Ecrãs até 768px de largura)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Ajusta o padding geral para dar mais espaço */
+    .AppContainer {
+        padding: 0 1rem;
+        margin: 1rem 0;
+    }
+
+    /* Diminui o texto principal e a margem */
+    .app-header {
+        margin-bottom: 1.5rem;
+    }
+    .app-header p {
+        font-size: 1rem;
+    }
+
+    /* Ajusta os cards das psicólogas */
+    .psi-card { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 1rem;
+        padding: 1.25rem;
+    }
+
+    /* Diminui a foto de perfil */
+    .psi-foto {
+        width: 120px; 
+        height: 120px;
+    }
+
+    /* Ajusta o tamanho do nome */
+    .psi-nome {
+        font-size: 1.5rem;
+    }
+
+    /* Garante que os botões do card ocupem toda a largura */
+    .card-botoes { 
+        width: 100%; 
+        margin-top: 1rem; 
+    }
+
+    /* Centraliza as tags de especialidade */
+    .psi-especialidades { 
+        justify-content: center; 
+    }
+
+    /* Ajusta o questionário */
+    .match-pergunta {
+        font-size: 1.5rem;
+    }
+    .match-respostas button {
+        padding: 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    /* Ajusta o container do promo para o match */
+    .promo-match-container {
+        padding: 1.5rem;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 360px) {
+    .app-header h1 {
+        font-size: 1.8rem;
+    }
+    .horarios-grid-container {
+        /* Garante 2 colunas no máximo, mesmo em telas muito estreitas */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    .botao-horario {
+        font-size: 0.9rem;
+        padding: 10px 5px;
+    }
+}
+
+/* --- Estilos para a nova organização de horários no Quiz --- */
+
+.dias-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espaço entre os blocos de cada dia */
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.dia-horarios-grupo h4 {
   font-family: var(--font-serif);
-  color: var(--verde-oliva);
-  font-size: clamp(1.8rem, 4vw, 2.2rem); /* Responsive font size */
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-}
-
-.promo-match-container p {
-  font-size: 1.1rem;
   color: var(--marrom-texto);
-  max-width: 500px; /* Limit line length for readability */
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
+  border-bottom: 2px solid var(--cinza-borda);
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
-.botao-iniciar-match {
-  display: inline-flex; /* To align icon and text */
-  align-items: center;
-  justify-content: center;
-  padding: 12px 24px; /* Slightly more padding for a primary button */
-  border-radius: 50px;
-  border: 2px solid var(--laranja-acao);
-  background-color: var(--laranja-acao);
-  color: var(--branco);
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: none; /* If it were an anchor */
+.horarios-grid {
+  display: grid;
+  /* Cria colunas responsivas para os botões de horário */
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 0.75rem;
 }
 
-.botao-iniciar-match:hover {
-  background-color: #d48f70; /* Slightly darker shade of orange */
-  border-color: #d48f70;
-  transform: translateY(-2px); /* Subtle lift effect */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+/* O antigo .horarios-grid-container não é mais necessário para esta lógica,
+   mas podemos manter para não quebrar nada. A nova classe .horarios-grid 
+   dentro de cada grupo de dia fará o trabalho pesado. */
 
-.botao-iniciar-match svg {
-  /* Styles for the SVG within the button are already in its component,
-     but we can override or add if needed, e.g., size if not fixed in SVG component.
-     The MagicWandIcon component already has margin-right. */
-}
-
-/* --- Styles for AI Free Text Input in Match --- */
-.match-subpergunta {
-  margin-top: -1.5rem; /* Based on user's inline style */
-  margin-bottom: 1.5rem; /* Based on user's inline style */
-  color: #8c8a87; /* Based on user's inline style */
-}
-
-.match-textarea {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 8px;
-  border: 2px solid var(--cinza-borda); /* Using CSS variable */
-  font-family: var(--font-sans); /* Using CSS variable */
-  font-size: 1rem;
-  resize: vertical;
-  box-sizing: border-box;
-  margin-bottom: 1.5rem;
-}
-
-.match-textarea:focus {
-  border-color: var(--verde-oliva); /* Using CSS variable */
-  outline: none;
-}
-
-.botao-finalizar {
-  background-color: var(--laranja-acao); /* Using CSS variable */
-  color: var(--branco); /* Using CSS variable */
-  border: none;
-  border-radius: 50px;
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.botao-finalizar:hover:not(:disabled) {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(210, 132, 90, 0.35); /* d2525a is --laranja-acao, so using its RGB for shadow */
-}
-
-.botao-finalizar:disabled {
-  background-color: var(--verde-acao); /* Using CSS variable */
-  cursor: wait;
-}
-
-.psi-crp {
-  font-size: 0.85rem;
-  color: var(--marrom-texto); /* Using existing variable for text color */
-  margin-top: -0.5rem;    /* Negative margin to bring it closer to the name */
-  margin-bottom: 0.75rem; /* Space before the 'abordagem' */
-  font-style: italic;     /* Optional: to make it slightly distinct */
+/* Ajusta o texto do botão de horário para ser apenas a hora */
+.horarios-grid .botao-horario {
+    font-size: 1rem;
+    padding: 10px;
 }

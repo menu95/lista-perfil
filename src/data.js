@@ -8,6 +8,7 @@ export const psicologasData = [
     especialidades: ["Terapia Cognitivo-Comportamental (TCC)", "Análise do Comportamento Aplicada (ABA)", "Adultos", "Neurodivergência", "Ansiedade", "TDAH", "TEA (Transtorno do Espectro Autista)", "Desregulação Emocional", "Habilidades Sociais", "Relacionamentos Amorosos"],
     tagsParaMatch: ["terapia-cognitivo-comportamental-tcc", "analise-do-comportamento-aplicada-aba", "adultos", "neurodivergencia", "ansiedade", "tdah", "tea-transtorno-do-espectro-autista", "desregulacao-emocional", "habilidades-sociais", "relacionamentos-amorosos"],
     crp: "05/71731",
+    horariosDisponiveis: ["Segunda 10:00", "Terça 14:00", "Quarta 09:00", "Quinta 18:00"],
     mensagemResultado: "Karine é especialista em Terapia Cognitivo-Comportamental com foco no desenvolvimento da autonomia e no bem-estar emocional. Ela vai te dar ferramentas práticas para lidar com os desafios do dia a dia e fortalecer sua segurança emocional!"
   },
   { // Jéssica (ID 2)
@@ -19,6 +20,7 @@ export const psicologasData = [
     especialidades: ["Terapia Cognitivo-Comportamental (TCC)", "Adultos", "Psicopatologia", "Transtornos de Ansiedade", "Transtornos de Humor", "TDAH", "Relacionamentos", "Comunicação Interpessoal", "Desenvolvimento Emocional"],
     tagsParaMatch: ["terapia-cognitivo-comportamental-tcc", "adultos", "psicopatologia", "transtornos-de-ansiedade", "transtornos-de-humor", "tdah", "relacionamentos", "comunicacao-interpessoal", "desenvolvimento-emocional"],
     crp: "05/71439",
+    horariosDisponiveis: ["Segunda 18:00", "Quarta 15:00", "Quinta 11:00", "Sexta 10:00"],
     mensagemResultado: "Jéssica é especialista em TCC para transtornos de humor e comunicação. Ela vai te ajudar a recuperar sua energia e melhorar suas habilidades sociais com estratégias eficazes!"
   },
   { // Juliana (ID 3)
@@ -30,6 +32,7 @@ export const psicologasData = [
     especialidades: ["Psicanálise", "Adultos", "Psicologia Hospitalar e da Saúde", "Saúde Mental", "Ansiedade", "Depressão", "Luto", "Transtornos de Personalidade", "Autismo", "Estresse", "Conflitos Relacionais"],
     tagsParaMatch: ["psicanalise", "adultos", "psicologia-hospitalar-e-da-saude", "saude-mental", "ansiedade", "depressao", "luto", "transtornos-de-personalidade", "autismo", "estresse", "conflitos-relacionais"],
     crp: "05/64368",
+    horariosDisponiveis: ["Terça 08:00", "Quarta 19:00", "Quinta 14:00", "Sexta 16:00"],
     mensagemResultado: "Juliana é especialista em Psicanálise com foco em saúde mental e na elaboração de conflitos internos. Com sua vasta experiência, ela vai te oferecer uma escuta profunda para compreender suas questões e construir caminhos mais conscientes!"
   },
   { // Bruna (ID 4)
@@ -41,6 +44,7 @@ export const psicologasData = [
     especialidades: ["Psicanálise", "Adultos", "Psicopatologia", "Transtornos de Humor", "Ansiedade", "Depressão", "Autoconhecimento", "Autoconfiança", "Relacionamentos", "Angústia"],
     tagsParaMatch: ["psicanalise", "adultos", "psicopatologia", "transtornos-de-humor", "ansiedade", "depressao", "autoconhecimento", "autoconfianca", "relacionamentos", "angustia"],
     crp: "05/74113",
+    horariosDisponiveis: ["Segunda 15:00", "Terça 19:00", "Quarta 11:00", "Sexta 08:00"],
     mensagemResultado: "Bruna é psicanalista com foco existencial e autoconhecimento. Ela vai te acompanhar numa jornada profunda de autodescoberta e busca de sentido!"
   },
   { // Andrezza (ID 5)
@@ -52,11 +56,13 @@ export const psicologasData = [
     especialidades: ["Psicanálise", "Psicanálise Lacaniana", "Adultos", "Angústia", "Sofrimento Psíquico", "Ansiedade", "Depressão", "TOC (Transtorno Obsessivo-Compulsivo)", "TDAH", "Sintomas Psicossomáticos", "Relacionamentos (Amorosos e Familiares)"],
     tagsParaMatch: ["psicanalise", "psicanalise-lacaniana", "adultos", "angustia", "sofrimento-psiquico", "ansiedade", "depressao", "toc-transtorno-obsessivo-compulsivo", "tdah", "sintomas-psicossomaticos", "relacionamentos-amorosos-e-familiares"],
     crp: "05/62770",
+    horariosDisponiveis: ["Terça 11:00", "Quarta 18:00", "Quinta 09:00", "Sexta 14:00"],
     mensagemResultado: "Andrezza é psicanalista especialista na relação mente-corpo. Ela vai te ajudar a entender como suas emoções se manifestam fisicamente e encontrar formas saudáveis de expressão!"
   }
 ];
 
 export const perguntasMatch = [
+  // ... (as perguntas continuam as mesmas, sem alterações aqui) ...
   // Pergunta 1: Focada no principal sentimento/problema do usuário.
   {
     pergunta: 'Qual destas situações descreve melhor o que você está sentindo agora?',
